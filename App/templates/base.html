@@ -18,10 +18,13 @@
                 {% if user and user.is_authenticated %}
                 <a href="/p/new">Post</a>
                 <a href="/u/{{ user.username }}">My Account</a>
-                <a href="">Logout</a>
+                <a href="/u/logout">Logout</a>
                 {% else %}
                 <a href="/u/login">Login</a>
                 <a href="/u/create">Create Account</a>
+                {% endif %}
+                {% if user.admin %}
+                <a href="/admin/dashboard">Admin Dashboard</a>
                 {% endif %}
             </li>
         <!-- </ul> -->

@@ -1,153 +1,222 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap");
 
 :root {
-    --primary: #4169e1;
-    --secondary: #ffffff;
-    --tertiary: #000000;
+  --primary: #4169e1;
+  --secondary: #ffffff;
+  --tertiary: #000000;
 }
 
 body {
-    height: 125vh;
-    font-family: 'Source Sans Pro', sans-serif;
-    margin-top: 80px;
-    padding: 30px;
+  height: 125vh;
+  font-family: "Source Sans Pro", sans-serif;
+  margin-top: 80px;
+  padding: 30px;
 }
 
 main {
-    color: var(--tertiary);
+  color: var(--tertiary);
 }
 
-header {
+/* Header / Navbar */
 
-    background-color: var(--primary);
-    color: var(--secondary);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    display: flex;
-    align-items: center;
+header {
+  background-color: var(--primary);
+  color: var(--secondary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
 }
 
 header * {
-    display: inline;
+  display: inline;
 }
 
 header li {
-    margin: 20px;
+  margin: 20px;
 }
 
 header li a {
-    color: var(--secondary);
-    text-decoration: none;
-    font-size: 1.3em;
-    margin: .2em;
+  color: var(--secondary);
+  text-decoration: none;
+  font-size: 1.3em;
+  margin: 0.2em;
 }
 
+/* Container */
+
 .container {
-    padding-right: 3%;
-    padding-left: 3%;
-    margin-right: auto;
-    margin-left: auto;
+  padding-right: 5%;
+  padding-left: 5%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Sidebar */
+
+.sidebar {
+  padding: 1em;
+  border-radius: 1.5em;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin-left: 65%;
+  width: 20%;
+  position: fixed;
+}
+
+/* Posts */
+
+.posts {
+  padding-right: 26%;
 }
 
 div.post {
-    padding: 1em;
-    border-radius: 1.5em;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin-top: 1em;
+  padding: 1em;
+  border-radius: 1.5em;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .post#title {
-    font-size: xx-large;
-    font-weight: bold;
-    margin: .1em;
+  font-size: xx-large;
+  font-weight: bold;
+  margin: 0.1em;
 }
 
 .post#content {
-    font-size: x-large;
-    margin: .5em;
+  font-size: x-large;
+  margin: 0.5em;
 }
 
 div.post_info {
-    color: hsla(0, 0%, 0%, .4);
-    font-weight: bold;
-    display: flex;
-    flex-direction: row;
-    margin-left: .2em;
-    margin-bottom: 0;
+  color: hsla(0, 0%, 0%, 0.4);
+  font-weight: bold;
+  margin-left: 0.2em;
+  margin-bottom: 0;
 }
 
 a.post#author {
-    color: hsla(0, 0%, 0%, .4);
+  color: hsla(0, 0%, 0%, 0.4);
+}
+
+a.post#delete {
+  color: red;
 }
 
 div.user {
-    padding: 1em;
-    border-radius: 1.5em;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    margin: .3em;
+  padding: 1em;
+  border-radius: 1.5em;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin: 0.3em;
 }
 
 .user#username {
-    font-size: xx-large;
-    font-weight: 600;
-    margin-top: 0;
+  font-size: xx-large;
+  font-weight: 600;
+  margin-top: 0;
 }
 
-.user#member_since {
-    font-size: x-large;
+.user {
+  font-size: x-large;
 }
 
-.user#post_number {
-    font-size: x-large;
-}
 
 .create_post {
-    display: flex;
+  display: flex;
 }
 
-input#title, textarea#content.create_post {
-    border: none;
-    padding: .5em;
-    margin: .5em;
-    height: 1em;
-    border:1px solid #eaeaea;
-    width: 95%;
-    outline:none;
-    font-size: larger;
+input#title,
+textarea#content.create_post {
+  border: none;
+  padding: 0.5em;
+  margin: 0.5em;
+  height: 1em;
+  border: 1px solid #eaeaea;
+  width: 95%;
+  outline: none;
+  font-size: larger;
+  resize: none;
 }
 
 textarea#content.create_post {
-    height: 50%;
-    font-family: 'Source Sans Pro', sans-serif;
+  height: 50%;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: larger;
+}
+
+/* Login | Register */
+
+div.login {
+  /* Center */
+  display: table;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+form.login#login,
+form.login#register {
+  /* Center */
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+
+  /* Border */
+  padding: 1em;
+  border-radius: 1.5em;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin: 0.3em;
+
+  display: flex;
+  flex-direction: column;
+}
+
+input[type='email'].login,
+input[type='password'].login,
+input[type='text'].login {
+    margin: 1em;
+    font-size: x-large;
+    border: none;
+    border-bottom: .1em solid hsla(0, 0%, 0%, 0.4);
+    outline: none;
+}
+
+input[type='email'].login:focus,
+input[type='password'].login:focus {
+    outline: none;
+    border-bottom: .15em solid var(--primary);
+}
+
+input[type='submit'] {
     font-size: larger;
+    margin: auto;
+    margin-top: 1em;
+    padding: .6em;
+    color: var(--secondary);
+    border: none;
+    background-color: var(--primary);
+    border-radius: .5em;
 }
 
-input:hover{
-    border-color: #a0a0a0 #b9b9b9 #b9b9b9 #b9b9b9;
-}
-input:focus{
-    border-color:#4d90fe;
+input[type='submit']:hover {
+    cursor: pointer;
 }
 
-input[type="submit"] {
-    border-radius: 2px;
-    background: #f2f2f2;
-    border: 1px solid #f2f2f2;
-    color: #757575;
-    cursor: default;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 0 16px;
-    height:36px;
-    margin: .6em;
+.login_redirect {
+    text-align: center;
+    font-size: large;
 }
-input[type="submit"]:hover {
-    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-    background: #f8f8f8;
-    border: 1px solid #c6c6c6;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-    color: #222;
+
+a.login_redirect {
+    color: var(--primary);
 }

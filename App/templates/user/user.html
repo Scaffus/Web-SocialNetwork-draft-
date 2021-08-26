@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 
 {% block head %}
@@ -15,7 +14,31 @@
         <p class="user" id="username">{{ user.username }}</p>
         <p class="user" id="member_since">Member since {{ user.joined.replace(microsecond=0) }}</p>
         <p class="user" id="post_number">Has posted {{ user.post_number }} time(s)</p>
+        <p class="user" id="ranks">Ranks: 
+            {% for rank in user.ranks.split('+')  %}
+                {{ rank }}
+            {% endfor %}
+        </p>
+        <p class="user" id="admin" style="font-size: larger; color: red; font-weight: 600;">
+            {% if user.admin %}
+            Admin
+            {% endif %}
+        </p>
     </div>
+    <div>
+        <h1 style="text-align: center; font-size: 3em;">Your posts</h1>
+    </div>
+    {% for post in user_posts %}
+    <div class="post">
+        <p class="post" id="title">{{ post.title }}</p>
+        <p class="post" id="content">{{ post.content }}</p>
+        <div class="post_info">
+            <p class="post" id="date">{{ post.date.replace(microsecond=0) }} (utc) by <a
+                    href="/u/{{ post.author_name }}" class="post" id="author">you</a></p>
+            <a href="/p/delete?post_uuid={{ post.uuid }}" class="post" id="delete">Delete</a>
+        </div>
+    </div>
+    {% endfor %}
     {% endif %}
 </div>
 {% else %}

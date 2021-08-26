@@ -4,12 +4,13 @@
 {% endblock %}
 
 {% block main %}
-<div>
-    <form action="/u/login" method="POST">
-        <input type="email" name="mail">
-        <input type="password" name="password">
+<div class="login">
+    <form action="/u/login" method="POST" class="login" id="login">
+        <input type="email" name="mail" class="login" id="login" placeholder="Mail">
+        <input type="password" name="password" class="login" id="login" placeholder="Password">
+        <input type="submit" value="Login" class="login" id="login">
         <hr>
-        <input type="submit" value="Login">
+        <p class="login_redirect">Dont have an account yet ? <a href="/u/create" class="login_redirect">Create one !</a></p>
     </form>
 </div>
 {% endblock %}
