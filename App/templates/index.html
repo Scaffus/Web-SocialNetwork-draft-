@@ -12,12 +12,12 @@
     </div>
     <div class="posts">
         {% for post in posts %}
-        <div class="post">
+        <div class="card">
             <p class="post" id="title">{{ post.title }}</p>
             <p class="post" id="content">{{ post.content }}</p>
             <div class="post_info">
                 <p class="post" id="date">{{ post.date.replace(microsecond=0) }} (utc) by <a
-                        href="/u/{{ post.author_name }}" class="post" id="author">{{ post.author_name }}</a></p>
+                        href="/u/{{ post.author_name }}" class="post" id="author" {% if current_user.username == post.author_name %} style="color: #4169e1;" {% endif %}>{{ post.author_name }}</a></p>
             </div>
         </div>
         {% endfor %}

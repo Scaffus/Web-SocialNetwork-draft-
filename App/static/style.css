@@ -47,6 +47,30 @@ header li a {
   margin: 0.2em;
 }
 
+footer {
+  background-color: var(--primary);
+  color: var(--secondary);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  text-align: center;
+}
+
+a.footer {
+  color: var(--secondary);
+}
+
+/* Card effect */
+
+.card {
+  margin-top: 1em;
+  padding: 1em;
+  border-radius: 1.5em;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
 /* Container */
 
 .container {
@@ -71,13 +95,6 @@ header li a {
 
 .posts {
   padding-right: 26%;
-}
-
-div.post {
-  margin-top: 1em;
-  padding: 1em;
-  border-radius: 1.5em;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .post#title {
@@ -106,13 +123,6 @@ a.post#delete {
   color: red;
 }
 
-div.user {
-  padding: 1em;
-  border-radius: 1.5em;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  margin: 0.3em;
-}
-
 .user#username {
   font-size: xx-large;
   font-weight: 600;
@@ -122,7 +132,6 @@ div.user {
 .user {
   font-size: x-large;
 }
-
 
 .create_post {
   display: flex;
@@ -181,42 +190,42 @@ form.login#register {
   flex-direction: column;
 }
 
-input[type='email'].login,
-input[type='password'].login,
-input[type='text'].login {
-    margin: 1em;
-    font-size: x-large;
-    border: none;
-    border-bottom: .1em solid hsla(0, 0%, 0%, 0.4);
-    outline: none;
+input[type="email"].login,
+input[type="password"].login,
+input[type="text"].login {
+  margin: 1em;
+  font-size: x-large;
+  border: none;
+  border-bottom: 0.1em solid hsla(0, 0%, 0%, 0.4);
+  outline: none;
 }
 
-input[type='email'].login:focus,
-input[type='password'].login:focus {
-    outline: none;
-    border-bottom: .15em solid var(--primary);
+input[type="email"].login:focus,
+input[type="password"].login:focus {
+  outline: none;
+  border-bottom: 0.15em solid var(--primary);
 }
 
-input[type='submit'] {
-    font-size: larger;
-    margin: auto;
-    margin-top: 1em;
-    padding: .6em;
-    color: var(--secondary);
-    border: none;
-    background-color: var(--primary);
-    border-radius: .5em;
+input[type="submit"] {
+  font-size: larger;
+  margin: auto;
+  margin-top: 1em;
+  padding: 0.6em;
+  color: var(--secondary);
+  border: none;
+  background-color: var(--primary);
+  border-radius: 0.5em;
 }
 
-input[type='submit']:hover {
-    cursor: pointer;
+input[type="submit"]:hover {
+  cursor: pointer;
 }
 
 .login_redirect {
-    text-align: center;
-    font-size: large;
+  text-align: center;
+  font-size: large;
 }
 
 a.login_redirect {
-    color: var(--primary);
+  color: var(--primary);
 }

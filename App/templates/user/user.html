@@ -6,17 +6,16 @@
 {% block main %}
 {% if user %}
 <div class="container">
+    <!-- If asked profile is current user profile -->
     {% if user == current_user %}
-    <div>
+    <div class="card">
         <h1 style="text-align: center; font-size: 3em;">Your account</h1>
-    </div>
-    <div class="user">
         <p class="user" id="username">{{ user.username }}</p>
         <p class="user" id="member_since">Member since {{ user.joined.replace(microsecond=0) }}</p>
         <p class="user" id="post_number">Has posted {{ user.post_number }} time(s)</p>
-        <p class="user" id="ranks">Ranks: 
-            {% for rank in user.ranks.split('+')  %}
-                {{ rank }}
+        <p class="user" id="ranks">Ranks:
+            {% for rank in user.ranks.split('+') %}
+            {{ rank }}
             {% endfor %}
         </p>
         <p class="user" id="admin" style="font-size: larger; color: red; font-weight: 600;">
@@ -25,20 +24,60 @@
             {% endif %}
         </p>
     </div>
-    <div>
-        <h1 style="text-align: center; font-size: 3em;">Your posts</h1>
-    </div>
-    {% for post in user_posts %}
-    <div class="post">
-        <p class="post" id="title">{{ post.title }}</p>
-        <p class="post" id="content">{{ post.content }}</p>
-        <div class="post_info">
-            <p class="post" id="date">{{ post.date.replace(microsecond=0) }} (utc) by <a
-                    href="/u/{{ post.author_name }}" class="post" id="author">you</a></p>
-            <a href="/p/delete?post_uuid={{ post.uuid }}" class="post" id="delete">Delete</a>
+    <div class="card">
+        <div>
+            <h1 style="text-align: center; font-size: 3em;">Your posts</h1>
         </div>
+        {% for post in user_posts %}
+        <div class="card">
+            <p class="post" id="title">{{ post.title }}</p>
+            <p class="post" id="content">{{ post.content }}</p>
+            <div class="post_info">
+                <p class="post" id="date">{{ post.date.replace(microsecond=0) }} (utc) by <a
+                        href="/u/{{ post.author_name }}" class="post" id="author">you</a></p>
+                <a href="/p/delete?post_uuid={{ post.uuid }}" class="post" id="delete">Delete</a>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
+
+    <!-- What other people see -->
+    {% else %}
+
+    <div class="card">
+        <p class="user" id="username" style="text-align: center; font-size: 3em;">{{ user.username }}'s profile</p>
+        <p class="user" id="member_since">Member since {{ user.joined.replace(microsecond=0) }}</p>
+        <p class="user" id="post_number">Has posted {{ user.post_number }} time(s)</p>
+        <p class="user" id="ranks">Ranks:
+            {% for rank in user.ranks.split('+') %}
+            {{ rank }}
+            {% endfor %}
+        </p>
+        <p class="user" id="admin" style="font-size: larger; color: red; font-weight: 600;">
+            {% if user.admin %}
+            Admin
+            {% endif %}
+        </p>
+    </div>
+    <div class="card">
+        <div>
+            <h1 style="text-align: center; font-size: 3em;">{{ user.username }}'s posts</h1>
+        </div>
+        {% for post in user_posts %}
+        <div class="card">
+            <p class="post" id="title">{{ post.title }}</p>
+            <p class="post" id="content">{{ post.content }}</p>
+            <!-- admin can delete any posts -->
+            {% if current_user.admin %}
+            <div class="post_info">
+                <p class="post" id="date">{{ post.date.replace(microsecond=0) }} (utc) by <a
+                        href="/u/{{ post.author_name }}" class="post" id="author">{{ post.author_name }}</a></p>
+                <a href="/p/delete?post_uuid={{ post.uuid }}" class="post" id="delete">Delete as admin</a>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
     {% endif %}
 </div>
 {% else %}

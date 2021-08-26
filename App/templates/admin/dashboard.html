@@ -25,20 +25,7 @@
                 has posted : {{ user.post_number }} time(s)
                 <br>
                 member since : {{ user.joined.replace(microsecond=0) }}
-                <details>
-                    <summary>see user posts</summary>
-                    {% for post in Post.query.filter_by(author_uuid=user.uuid).all() %}
-                    <div class="post">
-                        <p class="post" id="title">{{ post.title }}</p>
-                        <p class="post" id="content">{{ post.content }}</p>
-                        <div class="post_info">
-                            <p class="post" id="date">{{ post.date.replace(microsecond=0) }} (utc) by <a
-                                    href="/u/{{ post.author_name }}" class="post" id="author">you</a></p>
-                            <a href="/p/delete?post_uuid={{ post.uuid }}" class="post" id="delete">Delete</a>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </details>
+
             </details>
         </div>
         {% endfor %}
