@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block main %}
+{% if user %}
+<div class="container">
+    {% if user == current_user %}
+    <div>
+        <h1 style="text-align: center; font-size: 3em;">Your account</h1>
+    </div>
+    <div class="user">
+        <p class="user" id="username">{{ user.username }}</p>
+        <p class="user" id="member_since">Member since {{ user.joined.replace(microsecond=0) }}</p>
+        <p class="user" id="post_number">Has posted {{ user.post_number }} time(s)</p>
+    </div>
+    {% endif %}
+</div>
+{% else %}
+<h1>User {{ username }} not found.</h1>
+{% endif %}
+{% endblock %}

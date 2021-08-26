@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Home</title>
+{% endblock %}
+
+{% block main %}
+<div class="container">
+{% for post in posts %}
+<div class="post">
+    <p class="post" id="title">{{ post.title }}</p>
+    <p class="post" id="content">{{ post.content }}</p>
+        <div class="post_info">
+        <p class="post" id="date">{{ post.date.replace(microsecond=0) }} (utc) by <a href="/u/{{ post.author_name }}" class="post" id="author">{{ post.author_name }}</a></p>
+    </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}
